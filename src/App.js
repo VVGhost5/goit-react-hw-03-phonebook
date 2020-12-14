@@ -15,21 +15,14 @@ export default class App extends Component {
   componentDidMount() {
     const contacts = localStorage.getItem("contacts");
     const parsedContacts = JSON.parse(contacts);
-    console.log("лалочка");
 
     if (parsedContacts) {
       this.setState({ contacts: parsedContacts });
-      console.log("взял с локалки");
     }
   }
 
   componentDidUpdate(prevProps, prevState) {
-    console.log(prevState);
-    console.log(this.state);
-    console.log(this.state.contacts);
-    console.log(prevState.contacts);
     if (this.state.contacts !== prevState.contacts) {
-      console.log("22222222");
       localStorage.setItem("contacts", JSON.stringify(this.state.contacts));
     }
   }
